@@ -1,6 +1,8 @@
 const BaseError = require('../errors/base.error');
 const {StatusCodes} = require('http-status-codes');
 
+// the below one is not a normal middleware
+// it is an error-handling Middleware
 function errorHandler(err, req, res, next){
     if(err instanceof BaseError){
         return res.status(err.statusCode).json({
