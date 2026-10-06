@@ -14,7 +14,7 @@ function addProblem(req, res, next){
     }
 }
 
-function getProblem(req, res){
+function getProblem(req, res, next){
     try{
         throw new notImplemented('get Problem');
     }catch(error){
@@ -22,7 +22,7 @@ function getProblem(req, res){
     }
 }
 
-function getProblems(req, res){
+function getProblems(req, res, next){
     try{
         throw new notImplemented('get Problems');
     }catch(error){
@@ -30,7 +30,7 @@ function getProblems(req, res){
     }
 }
 
-function updateProblem(req, res){
+function updateProblem(req, res, next){
     try{
         throw new notImplemented('Update Problem');
     }catch(error){
@@ -38,7 +38,7 @@ function updateProblem(req, res){
     }
 }
 
-function deleteProblem(req, res){
+function deleteProblem(req, res, next){
     try{
         throw new notImplemented('Delete Problem');
     }catch(error){
