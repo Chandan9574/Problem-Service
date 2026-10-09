@@ -6,6 +6,7 @@ const apiRouter = require('./routes');
 const BaseError = require('./errors/base.error');
 const NotFoundError = require('./errors/notImplemented.error');
 const errorHandler = require('./utils/errorHandler');
+const connectToDB = require('./config/db.config');
 
 const app = express();
 
@@ -22,20 +23,8 @@ app.get('/ping', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`server started at PORT: ${PORT}`);
-
-    // we use throw here not return because i wnat to give signal that an error is happening,
-    // not what to return from the function
-    // when we want to return from any function then only use return
-    // else use throw for sending signals
-
-    // try {
-    //     throw new NotFoundError({});
-    // }
-    // catch (error) {
-    //     console.log("Something Went Wrong", error.name, error.stack);
-    // } finally {
-    //     console.log("Executed Finally");
-    // }
+    await connectToDB();
+    console.log("Successfully connected to DB");
 });
